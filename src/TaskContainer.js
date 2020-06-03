@@ -2,10 +2,10 @@ import React from 'react';
 import AddTaskForm from './AddTaskForm';
 import Task from './Task'
 
-class TaskContainer extends React.Component {
+const TaskContainer = props => {
 
-  renderTasks = () => {
-    const tasks = this.getTasks(this.props.tasks, this.props.selectedCategory)
+  const renderTasks = () => {
+    const tasks = getTasks(props.tasks, props.selectedCategory)
 
     return tasks.map(task => {
       return (
@@ -13,21 +13,21 @@ class TaskContainer extends React.Component {
           key={task.text}
           text={task.text}
           category={task.category}
-          deleteTask={this.props.deleteTask}
+          deleteTask={props.deleteTask}
         />
       )
     });
   }
 
-  getTasks = (tasks, category) => tasks.filter(task => task.category === category || category === 'All')
+  const getTasks = (tasks, category) => tasks.filter(task => task.category === category || category === 'All')
 
-  render() {
-    return <div className='tasks'>
+  return (
+    <div className='tasks'>
       <h5>Tasks</h5>
-      <AddTaskForm addTask={this.props.addTask} />
-      {this.renderTasks()}
+      <AddTaskForm addTask={props.addTask} />
+      {renderTasks()}
     </div>
-  }
+  )
 }
 
 export default TaskContainer;

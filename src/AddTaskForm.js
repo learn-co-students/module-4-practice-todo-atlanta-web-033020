@@ -14,6 +14,7 @@ class AddTaskForm extends React.Component {
 
   submitForm = e => {
     e.preventDefault();
+    this.setState({ text: '', category: 'Code' })
     this.props.addTask({ text: e.target.text.value, category: e.target.category.value })
   }
 
@@ -27,7 +28,7 @@ class AddTaskForm extends React.Component {
           value={this.state.text}
           onChange={this.handleOnChange}
         />
-        <select name="category" onChange={this.handleOnChange}>
+        <select name="category" onChange={this.handleOnChange} value={this.state.category}>
           <option>Code</option>
           <option>Food</option>
           <option>Money</option>

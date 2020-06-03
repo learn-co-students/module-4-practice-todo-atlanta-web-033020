@@ -1,20 +1,18 @@
 import React from 'react';
 
-class Task extends React.Component {
-  render() {
-    return (
-      <div className='task'>
-        <div className='label'>{this.props.category}</div>
-        <div className='text'>{this.props.text}</div>
-        <button
-          className="delete"
-          onClick={() => this.props.deleteTask({ text: this.props.text, category: this.props.category })}
-        >
-          X
-        </button>
-      </div>
-    )
-  }
+const task = props => {
+  return (
+    <div className='task'>
+      <div className='label'>{props.category}</div>
+      <div className='text'>{props.text}</div>
+      <button
+        className="delete"
+        onClick={() => props.deleteTask({ text: props.text, category: props.category })}
+      >
+        X
+          </button>
+    </div>
+  )
 }
 
-export default Task;
+export default task;

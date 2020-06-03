@@ -1,17 +1,15 @@
 import React from 'react';
 
-class CategoryButton extends React.Component {
+const CategoryButton = props => {
 
-  render() {
-    return (
-      <button
-        className={this.props.isSelected ? 'selected' : ''}
-        onClick={() => this.props.setSelectedCategory(this.props.category)}
-      >
-        {this.props.category}
-      </button>
-    )
-  }
+  return (
+    <button
+      className={props.isSelected ? 'selected' : ''}
+      onClick={() => props.setSelectedCategory(props.category)}
+    >
+      {props.category}
+    </button>
+  )
 }
 
 export default CategoryButton;
